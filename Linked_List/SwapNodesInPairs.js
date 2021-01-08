@@ -11,30 +11,7 @@ function ListNode(val, next) {
 }
 */
 
-var swapPairs = function(head) {
-  if (!head) return null;
-  // if next is null
-  if (head && head.next === null) {
-    // return
-    return;
-  }
-  // invoke the recursion with current node's next next
-  swapPairs(head.next.next);
-  // if next next next is null
-  if (head && head.next.next.next === null) {
-    // set current node's next to be next's next
-    head.next = head.next.next;
-    // else
-  } else {
-    // set current node's next to be next next next
-    head.next = head.next.next.next;
-  }
-  // set next nodes next to be current node's val
-  head.next.next = head;
-  // return head
-  return head;
-};
-
+// SOLUTION
 var swapPairs = (head) => {
   let cur = head;
   let newHead = head && head.next ? head.next : head;
