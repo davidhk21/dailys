@@ -30,9 +30,6 @@ Definition for singly-linked list.
   // if array with empthy linked lists, return empty array
 
 var mergeKLists = function(lists) {
-  // base case
-  if (!lists) return [];
-
   // create result set to first list
   let result = lists[0];
 
@@ -78,5 +75,5 @@ var mergeKLists = function(lists) {
   }
 
   // return result
-  return result;
+  return result || null;
 };
