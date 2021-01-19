@@ -22,13 +22,61 @@ Definition for singly-linked list.
   }
 */
 
-// Input:
-// Output:
-// Constraints:
+// Input: array of linked lists
+// Output: one merged linked list
+// Constraints: none
 // Edge Cases:
   // if empty array, return an empty array
   // if array with empthy linked lists, return empty array
 
 var mergeKLists = function(lists) {
+  // base case
+  if (!lists) return [];
 
+  // create result set to first list
+  let result = lists[0];
+
+  // create a merge function with input of 2 linked lists
+  let merge = (l1, l2) => {
+    // if l1 or l2 are not lists return the only list
+    if (!l1 || !l2) return l1 || l2;
+    // create mergedList set to an empty object
+    let mergedList = {};
+    let node = mergedList;
+    // while L1 or L2 exists
+    while (l1 && l2) {
+      // if L1 <= L2
+      if (l1.val <= l2.val) {
+        // set node.next = L1
+        node.next = l1;
+        // set L1 to be L1.next
+        l1 = l1.next;
+        // else
+      } else {
+        // set node.next = L2
+        node.next = l2;
+        // set L2 to be L2.next
+        l2 = l2.next;
+      }
+      // set mergedList to be mergedList.next
+      node = node.next;
+    }
+    // if L1 or L2 has some left, add to end of merged list
+    if (l1) {
+      node.next = l1;
+    } else if (l2) {
+      node.next = l2;
+    }
+    // return merged list
+    return mergedList.next;
+  }
+
+  // iterate from index 1
+  for (let i = 1; i < lists.length; i++) {
+    // merge result to list at index
+    result = merge(result, lists[i]);
+  }
+
+  // return result
+  return result;
 };
