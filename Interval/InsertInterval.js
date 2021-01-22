@@ -16,19 +16,24 @@ var insert = function(intervals, newInterval) {
   let result = [];
 
   let i = 0;
+  // push everything from the left side that doesn't need to be changed into result
   while (i < intervals.length && intervals[i][1] < newInterval[0]) {
     result.push(intervals[i]);
     i++;
   }
 
+  // set new interval's start
   newInterval = [Math.min(newInterval[0], i < intervals.length ? intervals[i][0] : Infinity), newInterval[1]];
 
+  // set new interval's end
   while (i < intervals.length && newInterval[1] >= intervals[i][0]) {
     newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
     i++;
   }
 
+  // push new interval to result
   result.push(newInterval);
+  // add the rest of the intervals to result
   return result.concat(intervals.slice(i));
 };
 
