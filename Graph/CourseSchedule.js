@@ -36,6 +36,3 @@ var canFinish = function(numCourses, prerequisites) {
   }
   return !numCourses;
 };
-
-const courses = [[0, 1], [0, 2], [1, 3], [2, 3]];
-console.log(canFinish(4, courses));
