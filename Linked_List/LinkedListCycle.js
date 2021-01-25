@@ -17,6 +17,24 @@ function ListNode(val) {
 // Constraints: constant memory
 // Edge Cases: none
 
+// Constance space solution
+var hasCycle = function(head) {
+  // create a variable for node1 and node2
+  let node1 = head; node2 = head;
+  // while node1 and node1.next
+  while (node1 && node2 && node2.next) {
+    // set node1 to be node1.next
+    node1 = node1.next;
+    // set node2 to be node2.next.next
+    node2 = node2.next.next
+    // if node 1 and node2 are the same node, return true
+    if (node1 === node2) return true;
+  }
+  // return false
+  return false;
+};
+
+// Original Solution (Linear Space)
 var hasCycle = function(head) {
   // if head.next is null, return false
   if (!head || head.next === null) return false;
