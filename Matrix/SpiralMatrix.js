@@ -17,35 +17,38 @@ var spiralOrder = function(matrix) {
   // create a variable for result array
   let result = [];
   // create variables for top, bottom, left, right
-  let top = 0; bottom = matrix.length - 1; left = 0; right = matrix[0].length - 1;
+  let top = 0;
+  let bottom = matrix.length - 1;
+  let left = 0;
+  let right = matrix[0].length - 1;
   // create variable for size
-  let size = bottom * right;
+  let size = matrix.length * matrix[0].length;
 
   // while result array length is less than size
-  while (result.length <= size) {
+  while (result.length < size) {
     // iterate from left to right at top level
-    for (let i = left; i <= right && result.length <= size; i++) {
+    for (let i = left; i <= right && result.length < size; i++) {
       // push to result
       result.push(matrix[top][i]);
     }
     // increment top
     top++;
     // iterate from top to bottom at right side
-    for (let i = top; i <= bottom && result.length <= size; i++) {
+    for (let i = top; i <= bottom && result.length < size; i++) {
       // push to result
       result.push(matrix[i][right]);
     }
     // decrement right
     right--;
     // iterate from right to left at bottom level
-    for (let i = right; i >= left && result.length <= size; i--) {
+    for (let i = right; i >= left && result.length < size; i--) {
       // push to result
       result.push(matrix[bottom][i]);
     }
     // decrement bottom
     bottom--;
     // iterate from bottom to top at left side
-    for (let i = bottom; bottom >= top && result.length <= size; i--) {
+    for (let i = bottom; i >= top && result.length < size; i--) {
       // push to result
       result.push(matrix[i][left]);
     }
