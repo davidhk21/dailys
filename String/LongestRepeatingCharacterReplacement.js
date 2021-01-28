@@ -23,23 +23,23 @@ The substring "BBBB" has the longest repeating letters, which is 4.
 // Edge Cases: none
 
 var characterReplacement = function(s, k) {
-  const dict = {};
+  const window = {};
   let start = 0;
   let numRepeatingChar = 0;
   let longestSubstr = 0;
 
   for (let end = 0; end < s.length; end++) {
     // increment counter of letter (expanding the window)
-    dict[s[end]] = ++dict[s[end]] || 1;
+    window[s[end]] = ++window[s[end]] || 1;
 
     // number of the most frequent letter in the window
-    numRepeatingChar = Math.max(numRepeatingChar, dict[s[end]]);
+    numRepeatingChar = Math.max(numRepeatingChar, window[s[end]]);
 
     // Window length - number of most frequent letter gives us
     // number of letters that need to be replaced. If that's
     // greater than k, we need to shrink the window
     if ((end - start + 1) - numRepeatingChar > k) {
-      dict[s[start]]--;
+      window[s[start]]--;
       start++;
     }
 
