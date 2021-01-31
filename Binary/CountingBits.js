@@ -12,6 +12,7 @@ Output: [0,1,1,2,1,2]
 //              Space Complexity: O(n)
 // Edge Cases: none
 
+// DYNAMMIC PROGRAMMING SOLUTION
 // Time Complexity: O(n)
 // Space Complexity: O(n)
 var countBits = function(num) {
@@ -24,6 +25,7 @@ var countBits = function(num) {
   return result;
 }
 
+// ORIGINAL SOLUTION
 // Time Complexity: O(kn) where k is number of bits for a num
 // Space Complexity: O(n)
 var countBits = function(num) {
