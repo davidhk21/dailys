@@ -16,6 +16,7 @@ Output: [24,12,8,6]
 //              Space Complexity: O(1)
 // Edge Cases: none
 
+// OPTIMIZED SOLUTION
 // O(n) Time Complexity, O(1) Space Complexity solution
 var productExceptSelf = function(nums) {
   let result = [1];
@@ -33,6 +34,7 @@ var productExceptSelf = function(nums) {
   return result;
 }
 
+// ORIGINAL SOLUTION
 // O(n) Time Complexity, O(n) Space Complexity solution
 var productExceptSelf = function(nums) {
   nums.unshift(1);
