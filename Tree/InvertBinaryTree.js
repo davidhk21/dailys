@@ -10,7 +10,7 @@ function TreeNode(val, left, right) {
 */
 
 // Time: O(n)
-// Space: O(1)
+// Space: O(n)
 var invertTree = function(root) {
   if (!root) return root;
   if (root.left === null && root.right === null) return root;
