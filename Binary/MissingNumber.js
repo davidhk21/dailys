@@ -4,6 +4,18 @@ Given an array nums containing n distinct numbers in the range [0, n], return th
 Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
 */
 
+// Bit manipulation Solution
+// Time: O(n)
+// Space: O(1)
+var missingNumber = function(nums) {
+  let result = nums.length;
+  for (let i = 0; i < nums.length; i++) {
+    result ^= i ^ nums[i];
+  }
+  return result;
+}
+
+// Gauss Formula Solution
 // Time: O(n)
 // Space: O(1)
 var missingNumber = function(nums) {
@@ -14,6 +26,7 @@ var missingNumber = function(nums) {
   return expectedSum - actualSum;
 }
 
+// Original Solution
 // Time: O(n log n)
 // Space: O(1)
 var missingNumber = function(nums) {
