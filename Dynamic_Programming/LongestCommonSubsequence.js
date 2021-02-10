@@ -11,6 +11,9 @@ Output: 3
 Explanation: The longest common subsequence is "ace" and its length is 3.
 */
 
+// Bottom Up (Tabulation) Approach
+// Time: O(M * N)
+// Space: O(M * N)
 var longestCommonSubsequence = function(text1, text2) {
   let dpGrid = [];
   for (let row = 0; row < text1.length + 1; row++) {
@@ -21,7 +24,6 @@ var longestCommonSubsequence = function(text1, text2) {
   for (let row = 0; row < dpGrid.length; row++) {
     for (let col = 0; col < dpGrid[row].length; col++) {
       if (row === 0 || col === 0) {
-        dpGrid[row][col] = 0;
         continue;
       }
       if (text1[row - 1] === text2[col - 1]) {
@@ -32,5 +34,24 @@ var longestCommonSubsequence = function(text1, text2) {
     }
   }
 
-  return dpGrid[dpGrid.length][dpGrid[0].length];
+  return dpGrid[dpGrid.length - 1][dpGrid[0].length - 1];
 };
+
+// Top Down (Memoization) Approach
+// Time: O(M * N)
+// Space: O(M * N)
+var longestCommonSubsequence = function(text1, text2) {
+  if (text1.length === 0 || text2.length === 0) return 0;
+
+  const text1WithoutFinalCharacter = text1.slice(0, text1.length - 1);
+  const text2WithoutFinalCharacter = text2.slice(0, text2.length - 1);
+
+  const text1FinalCharacter = text1[text1.length - 1];
+  const text2FinalCharacter = text2[text2.length - 1];
+
+  if (text1FinalCharacter === text2FinalCharacter) {
+    return 1 + longestCommonSubsequence(text1WithoutFinalCharacter, text2WithoutFinalCharacter);
+  } else {
+    return Math.max(longestCommonSubsequence(text1, text2WithoutFinalCharacter), longestCommonSubsequence(text1WithoutFinalCharacter, text2));
+  }
+}
