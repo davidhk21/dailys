@@ -13,8 +13,8 @@ Input: grid = [
 Output: 3
 */
 
-// Time: O(m * n)
-// Space: O(1)
+// Time: O(M * N)
+// Space: O(M * N)
 var numIslands = function(grid) {
   // create a result counter variable
   let count = 0;
