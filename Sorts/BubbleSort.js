@@ -9,6 +9,12 @@ First Pass:
 ( 1 4 2 5 8 ) –> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
 */
 
+// Time:
+  // Worst: O(n^2)
+  // Best: O(n)
+  // Average: O(n^2)
+// Space:
+  // O(1)
 const bubbleSort = (nums) => {
   let length = nums.length;
   while (length > 0) {
