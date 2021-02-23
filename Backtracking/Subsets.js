@@ -9,7 +9,7 @@ var subsets = function(nums) {
   let subsets = [];
 
   const checkSubsets = (arr, idx) => {
-    if (!subsets.includes(arr)) subsets.push(arr);
+    subsets.push(arr);
 
     for (let i = idx; i < nums.length; i++) {
       checkSubsets(arr.concat(nums[i]), i + 1);
@@ -27,7 +27,7 @@ var subsets = function(nums) {
   let subsets = [];
 
   const checkSubsets = (arr, idx) => {
-    if (!subsets.includes(arr)) subsets.push(arr);
+    subsets.push(arr);
 
     for (let i = idx; i < nums.length; i++) {
       let newArr = [...arr, nums[i]];
