@@ -11,6 +11,8 @@ t = '1zz456'
 Output: removeOneDigit(s, t) // 1
 */
 
+// Time: O(s + t)
+// Space: O(1)
 var removeOneDigit = (s, t) => {
   let count = 0;
 
@@ -27,7 +29,13 @@ var removeOneDigit = (s, t) => {
       if (s < newT) count++;
     }
   }
+
+  return count;
 }
 
+console.time('first')
 console.log(removeOneDigit('ab12c', '1zz456')); // 1
+console.timeEnd('first') // 0.159 ms
+console.time('second')
 console.log(removeOneDigit('12asb', '3jf1')); // 4
+console.timeEnd('second') // 0.051 ms

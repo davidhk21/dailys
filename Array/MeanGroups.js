@@ -17,6 +17,8 @@ meanGroups(a) = [[0, 4],
                  [2, 3]]
 */
 
+// Time: O(n^2)
+// Space: O(n)
 var meanGroups = (a) => {
   let result = [];
   let means = [];
@@ -46,4 +48,9 @@ var meanGroups = (a) => {
 }
 
 let exampleInput = [[3, 3, 4, 2], [4, 4], [4, 0, 3, 3], [2, 3], [3, 3, 3]];
+console.time('first')
 console.log(meanGroups(exampleInput)); // [[0, 4], [1], [2, 3]];
+console.timeEnd('first') // 2.868 ms
+console.time('second')
+console.log(meanGroups([[1, 2, 3, 4, 5], [3, 3, 3], [0, 5, 6, 1], [0, 0, 0, 0, 0, 18]])) // [[0, 1, 2, 3]]
+console.timeEnd('second') // 0.638 ms
