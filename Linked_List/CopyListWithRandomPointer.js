@@ -45,41 +45,43 @@ var copyRandomList = function(head) {
 
     return copyNode;
   }
+  return createCopy(head);
+}
 
-  // One Pass Iterative approach
-  // Time: O(n)
-  // Space: O(n)
-  var copyRandomList = function(head) {
-    if (!head) return head;
-    let map = new Map();
+// One Pass Iterative Approach
+// Time: O(n)
+// Space: O(n)
+var copyRandomList = function(head) {
+  if (!head) return head;
+  let map = new Map();
 
-    let oldHead = head;
-    let newHead = new Node(oldHead.val);
-    map.set(oldHead, newHead);
+  let oldHead = head;
+  let newHead = new Node(oldHead.val);
+  map.set(oldHead, newHead);
 
-    while (oldHead) {
-      let newNext = map.get(oldHead.next);
-      if (newNext) {
-        newHead.next = newNext;
-      } else {
-        newHead.next = oldHead.next === null ? null : new Node(oldHead.next.val);
-        map.set(oldHead.next, newHead.next);
-      }
-
-      let newRandom = map.get(oldHead.random);
-      if (newRandom) {
-        newHead.random = newRandom;
-      } else {
-        newHead.random = oldHead.random === null ? null : new Node(oldHead.random.val);
-        map.set(oldHead.random, newHead.random);
-      }
-
-      oldHead = oldHead.next;
-      newHead = newHead.next;
+  while (oldHead) {
+    let newNext = map.get(oldHead.next);
+    if (newNext) {
+      newHead.next = newNext;
+    } else {
+      newHead.next = oldHead.next === null ? null : new Node(oldHead.next.val);
+      map.set(oldHead.next, newHead.next);
     }
 
-    return map.get(head);
+    let newRandom = map.get(oldHead.random);
+    if (newRandom) {
+      newHead.random = newRandom;
+    } else {
+      newHead.random = oldHead.random === null ? null : new Node(oldHead.random.val);
+      map.set(oldHead.random, newHead.random);
+    }
+
+    oldHead = oldHead.next;
+    newHead = newHead.next;
   }
+
+  return map.get(head);
+}
 
 // Original iterative approach
 // Time: O(n)
