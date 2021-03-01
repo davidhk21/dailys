@@ -3,7 +3,8 @@ This problem was given during a practice test for Asana coding assignment
 
 Given an array of integers a, consider all its contiguous subarrays of length m. Calculate the number of such subarrays, which contain a pair of integers in it with sum greater than or equal to k.
 
-More formally, given the array a, your task is to count the number of such indices 0 <= i <= a.length - m such that a subarray [a[i], a[i + 1], ..., a[i + m - 1]] contains such pair (a[s], a[t]), such that
+More formally, given the array a, your task is to count the number of such indices 0 <= i <= a.length - m such that a subarray [a[i], a[i + 1], ..., a[i + m - 1]] contains such pair (a[s], a[t]), such that:
+
 - s !== t
 - a[s] + a[t] >= k
 
