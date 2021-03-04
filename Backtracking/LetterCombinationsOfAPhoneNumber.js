@@ -13,6 +13,8 @@ Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 // Constraints: none
 // Edge Cases: empty string => empty array
 
+// Time: O(3^N x 4^M) where N is the number of digits in the input that map to 3 letters and M is the number of digits that map to 4 letters, and N + M is the total number digits in the input
+// Space: O(3^N X 4^M) since one has to keep 3^N x 4^M solutions
 var letterCombinations = function(digits) {
   if (digits.length === 0) return [];
 
