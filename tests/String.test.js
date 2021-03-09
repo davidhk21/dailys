@@ -1,4 +1,5 @@
 const NumberFormatter = require('../String/ToHumanString.js');
+const groupAnagrams = require('../String/GroupAnagrams.js');
 
 describe('Number Formatter', () => {
   test('should turn number to human string format', () => {
@@ -14,5 +15,16 @@ describe('Number Formatter', () => {
   test('should have no commas if less than 1,000', () => {
     const formatter = new NumberFormatter(987);
     expect(formatter.toHumanString()).toEqual('987');
+  })
+})
+
+describe('Group Anagram', () => {
+  test('should group anagrams correctly', () => {
+    expect(groupAnagrams(["eat","tea","tan","ate","nat","bat"])).toEqual(
+      [["eat","tea","ate"],["tan","nat"],["bat"]])
+  })
+
+  test('should work with one empty string', () => {
+    expect(groupAnagrams([''])).toEqual([['']]);
   })
 })
