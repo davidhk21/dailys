@@ -12,7 +12,6 @@ var levelOrder = function(root) {
   let level = 0;
   let queue = [root];
   while (queue.length > 0) {
-    // start current level
     result.push([]);
 
     let queueLength = queue.length;
