@@ -1,5 +1,6 @@
 const NumberFormatter = require('../String/ToHumanString.js');
 const groupAnagrams = require('../String/GroupAnagrams.js');
+const isValid = require('../String/ValidParentheses.js');
 
 describe('Number Formatter', () => {
   test('should turn number to human string format', () => {
@@ -26,5 +27,15 @@ describe('Group Anagram', () => {
 
   test('should work with one empty string', () => {
     expect(groupAnagrams([''])).toEqual([['']]);
+  })
+})
+
+describe('Valid Parentheses', () => {
+  test('should validate parentheses', () => {
+    expect(isValid('(){}[]')).toBe(true);
+  })
+
+  test('should return false', () => {
+    expect(isValid('([]){}(()}')).toBe(false);
   })
 })
