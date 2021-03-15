@@ -1,6 +1,7 @@
 const NumberFormatter = require('../String/ToHumanString.js');
 const groupAnagrams = require('../String/GroupAnagrams.js');
 const isValid = require('../String/ValidParentheses.js');
+const palindrome = require('../String/Palindrome.js');
 
 describe('Number Formatter', () => {
   test('should turn number to human string format', () => {
@@ -37,5 +38,15 @@ describe('Valid Parentheses', () => {
 
   test('should return false', () => {
     expect(isValid('([]){}(()}')).toBe(false);
+  })
+})
+
+describe('Palindrome', () => {
+  test('should work with word with symbols and whitespace', () => {
+    expect(palindrome('@#)(   m @ om   #@')).toEqual(true);
+  })
+
+  test('should work with regular word', () => {
+    expect(palindrome('Racecar')).toEqual(true);
   })
 })
