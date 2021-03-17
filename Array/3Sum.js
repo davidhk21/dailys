@@ -38,3 +38,29 @@ var threeSum = function(nums) {
   return result;
 }
 
+// Hashset Solution
+// Time: O(N^2)
+// Space: O(N) for the hashset
+var threeSum = function(nums) {
+  let result = [];
+  nums.sort((a, b) => a - b);
+
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] > 0) break;
+    if (nums[i] === nums[i - 1]) continue;
+    let set = new Set();
+    let j = i + 1;
+    while (j < nums.length) {
+      let compliment = -nums[i] - nums[j];
+      if (set.has(compliment)) {
+        result.push([nums[i], nums[j], compliment]);
+        while (j < nums.length && nums[j] === nums[j + 1]) j++;
+      }
+      set.add(nums[j]);
+      j++;
+    }
+  }
+
+  return result;
+}
+
