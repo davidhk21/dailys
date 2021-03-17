@@ -15,6 +15,8 @@ Explanation: You cannot rob house 1 (money = 2) and then rob house 3 (money = 2)
   // nums[i] >= 0
 // Edge Cases: none
 
+// Time: O(N)
+// Space: O(1)
 var rob = function(nums) {
   if (nums.length === 1) return nums[0];
   if (nums.length === 2) return Math.max(nums[0], nums[1]);
@@ -26,6 +28,7 @@ var rob = function(nums) {
   return Math.max(robber(first), robber(second));
 };
 
+// O(N) Space Solution
 var robber = (arr) => {
   let max = Math.max(arr[0], arr[1]);
   let dp = [arr[0], arr[1]];
@@ -37,3 +40,13 @@ var robber = (arr) => {
   }
   return max;
 }
+
+// O(1) Space Solution
+// var robber = (arr) => {
+//   let prevMax = 0;
+//   let currMax = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     [prevMax, currMax] = [currMax, Math.max(currMax, prevMax + arr[i])];
+//   }
+//   return currMax;
+// }
