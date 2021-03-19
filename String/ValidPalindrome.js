@@ -7,6 +7,8 @@ Output: true
 Explanation: "amanaplanacanalpanama" is a palindrome.
 */
 
+// Time: O(N)
+// Space: O(1)
 var isLetter = (str) => {
   return str.length === 1 && str.match(/^[A-Za-z0-9]+$/);
 }
