@@ -1,4 +1,4 @@
-let names = ['David', 'Jvu', 'Tommy', 'Allyson', 'Lauren', 'Christine', 'Joon'];
+let names = ['David', 'Jvu', 'Tommy', 'Allyson', 'Lauren', 'Christine'];
 
 function shuffle(array) {
   var currentIndex = array.length;
